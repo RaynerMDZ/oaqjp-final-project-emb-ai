@@ -5,7 +5,7 @@ from EmotionDetection import emotion_detector
 
 app = Flask(__name__)
 
-@app.route('/emotion-detector/<text>', methods=['GET'])
+@app.route('/emotionDetector/<text>', methods=['GET'])
 def detect_emotion(text=None):
     """Return formatted emotion scores and dominant emotion for input text."""
     if text is None:
@@ -24,6 +24,11 @@ def detect_emotion(text=None):
         f"'sadness': {emotion_dict['sadness']}. "
         f"The dominant emotion is {emotion_dict['dominant_emotion']}."
     )
+
+@app.route('/')
+def index():
+    """Return the main page."""
+    return render_template('index.html')
 
 if __name__ == '__main__':
     app.run(port=5000)
