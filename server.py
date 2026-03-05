@@ -12,6 +12,9 @@ def detect_emotion(text=None):
         text = request.args.get("textToAnalyze", "")
 
     emotion_dict = emotion_detector(text)
+    if isinstance(emotion_dict, str):
+        return emotion_dict
+
     if not emotion_dict or emotion_dict.get("dominant_emotion") is None:
         return "Invalid text! Please try again!"
 

@@ -11,6 +11,10 @@ def emotion_detector(text_to_analyze):
 
     request_body = {"raw_document": { "text": text_to_analyze }}
     response = requests.post(base_url, headers=headers, json=request_body)
+
+    if response.status_code == 400:
+        return "Invalid text! Please try again!"
+
     data = json.loads(response.text)
 
     predictions = (data or {}).get("emotionPredictions") or []
@@ -46,5 +50,4 @@ def emotion_detector(text_to_analyze):
         "sadness": sadness_score,
         "dominant_emotion": dominant_emotion,
     }
-    else:
-        return None
+    return None
