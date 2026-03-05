@@ -1,0 +1,12 @@
+theia@theiadocker-raynermendez:/home/project/.theia/final_project$ pylint server.py
+************* Module server
+server.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+server.py:7:0: C0116: Missing function or method docstring (missing-function-docstring)
+
+-----------------------------------
+Your code has been rated at 8.33/10
+
+theia@theiadocker-raynermendez:/home/project/.theia/final_project$ pylint server.py
+
+-------------------------------------------------------------------
+Your code has been rated at 10.00/10 (previous run: 8.33/10, +1.67)
